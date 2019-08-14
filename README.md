@@ -15,6 +15,8 @@ C++ Rootfinding Project: A library of root-finding functions utilizing modern C+
 ## <a name = "introduction"></a> Introduction
 With the implementation of lambdas in modern C++, it has become easier to perform operations on functions. With this library, we hope to create a library of .h header files to make rootfinding in C++ more simple and less time-consuming. The .h files included in this library do not have any other dependencies and work on any compilier.
 
+The functions in this library are not meant to be used to solve for roots haphazardly. The user should 
+
 ## <a name = "installation"></a> Installation
 There are no special actions needed for installation or compilation. Download the desired header file for your project and use 
 ```cpp 
@@ -23,8 +25,10 @@ There are no special actions needed for installation or compilation. Download th
 in your .cpp or .h file to use the functions in the header file.
 
 ## <a name = "defaultValues"></a> Default Values
-For all functions in this library, the assigned default value for tolerance is the square root of the machine epsilon. 
-The default number of maximum iterations varies by function and is noted under the documentation for each function. 
+For all functions in this library, the assigned default value for tolerance is the square root of the machine epsilon. A derivation from Numerical Recipes [6] shows this tolerance value to allow for floating point arithmetic errors. 
+
+The default number of maximum iterations varies by function and is noted under the documentation for each function. Some functions require a higher default numer of maximum iterations than others. 
+
 We also use the alias
 ```cpp
 using double = Real
@@ -44,10 +48,14 @@ The function call for Steffensen's method is:
 steffensonMethod(F f, Real initialGuess, Real tol, unsigned int maxIterations, Real guessZero)
 ```
 
+`f` is a templated parameter which can be taken in as either a lambda or a pre-defined function call to a mathematical expression created by the user. `initialGuess` is a real value which represents an initial guess of what the root of the function might be. 
+
+The default values for `tol` and `guessZero` are the square root of machine epsilon. `tol` is used as the convergence tolerance while `guessZero` is used to determine if `initialGuess` yields a value which is close enough to 0. If `initalGuess` is close enough to zero, the function returns the value of `initialGuess` as the root.
+
 ### <a name = "bisection"></a> Bisection Method
 The basic algorithm for the bisection method is:
 
-x<sub>n</sub> = 
+c = 
 
 #### <a name = "biParameters"></a> Parameters
 The function all for the bisection method is:
@@ -56,12 +64,14 @@ The function all for the bisection method is:
 ```
 
 ## <a name = "references"></a> References
-[1] R.L Burden and J. D. Faires, *Numerical Analysis*, 5th ed., PWS Publishing Company, Boston, MA, 1993
+[1] R.L. Burden and J. D. Faires, *Numerical Analysis*, 5th Ed., PWS Publishing Company, Boston, MA, 1993
 
-[2] K.E. Atkinson, *An Introduction to Numerical Analysis*, 2nd ed., John Wiley and Sons, Inc., Hoboken, NJ, 1989
+[2] K.E. Atkinson, *An Introduction to Numerical Analysis*, 2nd Ed., John Wiley and Sons, Inc., Hoboken, NJ, 1989
 
-[3] S.D. Conte and C de Boor, *Elementary Numerical Analysis: An Algorithmic Approach*, 3rd ed., McGraw-Hill Book Company, New York City, New York, 1980
+[3] S.D. Conte and C de Boor, *Elementary Numerical Analysis: An Algorithmic Approach*, 3rd Ed., McGraw-Hill Book Company, New York City, New York, 1980
 
 [4] L. Råde and B. Westergren, *Mathematics Handbook for Science and Engineering*, 5th Ed. Springer-Verlag, Berlin, Heidelberg, 2010
 
-[5] J. Solomon, *Numerical Algorithms: Methods for Computer Vision, Machine Learning*, and Graphics, CRC Press, Boca Raton, FL, 2015
+[5] J. Solomon, *Numerical Algorithms: Methods for Computer Vision, Machine Learning, and Graphics*, CRC Press, Boca Raton, FL, 2015
+
+[6] W.H. Press, S.A. Teukolsky, W.T. Vetterling, and B. P. Flannery, *Numerical Recipes*, 3rd Ed., Cambridge University Press, New York City, New York, 2007 
