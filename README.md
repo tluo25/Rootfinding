@@ -4,9 +4,12 @@ C++ Rootfinding Project: A library of root-finding functions utilizing modern C+
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installation](#installation)
-* [Available functions](#functions)
+* [Default Values](#defaultValues)
+* [Available Functions](#functions)
   - [Steffensen's Method](#steffensen)
+    - [Parameters](#steffParameters)
   - [Bisection Method](#bisection)
+    - [Parameters](#biParameters)
 * [References](#references)
 
 ## <a name = "introduction"></a> Introduction
@@ -19,15 +22,38 @@ There are no special actions needed for installation or compilation. Download th
 ``` 
 in your .cpp or .h file to use the functions in the header file.
 
+## <a name = "defaultValues"></a> Default Values
+For all functions in this library, the assigned default value for tolerance is the square root of the machine epsilon. 
+The default number of maximum iterations varies by function and is noted under the documentation for each function. 
+We also use the alias
+```cpp
+using double = Real
+```
+as we will be working with real numbers exclusively.
+
 ## <a name = "functions"></a> Available functions
 ### <a name = "steffensen"></a> Steffensen's Method
-The basic formula for Steffensen's Method is:
+The basic algorithm for Steffensen's Method is:
 
 x<sub>n</sub> = x<sub>n-1</sub>
 
-### <a name = "bisection"></a> Bisection Method
-The basic formula for the bisection method is:
+#### <a name = "steffParameters"></a> Parameters
+The function call for Steffensen's method is:
 
+```cpp
+steffensonMethod(F f, Real initialGuess, Real tol, unsigned int maxIterations, Real guessZero)
+```
+
+### <a name = "bisection"></a> Bisection Method
+The basic algorithm for the bisection method is:
+
+x<sub>n</sub> = 
+
+#### <a name = "biParameters"></a> Parameters
+The function all for the bisection method is:
+```cpp
+ bisection(F f, Real a, Real b, Real tol, unsigned int maxIterations, Real guessZero)
+```
 
 ## <a name = "references"></a> References
 [1] R.L Burden and J. D. Faires, *Numerical Analysis*, 5th ed., PWS Publishing Company, Boston, MA, 1993
