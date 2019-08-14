@@ -23,9 +23,10 @@ in your .cpp or .h file to use the functions in the header file.
 ### <a name = "steffensen"></a> Steffensen's Method
 The basic formula for Steffensen's Method is:
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=x_n&space;=&space;x_{n-1}&space;-&space;\frac{(f(x_{n-1}))^2}{D},&space;\\&space;D&space;=&space;f(x_{n-1}&plus;f(x_{n-1}))&space;-&space;f(x_n_1)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_n&space;=&space;x_{n-1}&space;-&space;\frac{(f(x_{n-1}))^2}{D},&space;\\&space;D&space;=&space;f(x_{n-1}&plus;f(x_{n-1}))&space;-&space;f(x_n_1)" title="x_n = x_{n-1} - \frac{(f(x_{n-1}))^2}{D}, \\ D = f(x_{n-1}+f(x_{n-1})) - f(x_n_1)" /></a> [2]
 
 ### <a name = "bisection"></a> Bisection Method
+The basic formula for the bisection method is:
+
 
 ## <a name = "references"></a> References
 [1] R.L Burden and J. D. Faires, *Numerical Analysis*, 5th ed., PWS Publishing Company, Boston, MA, 1993
