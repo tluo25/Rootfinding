@@ -23,6 +23,7 @@ in your .cpp or .h file to use the functions in the header file.
 ### <a name = "steffensen"></a> Steffensen's Method
 The basic formula for Steffensen's Method is:
 
+x<sub>n</sub> = x<sub>n-1</sub>
 
 ### <a name = "bisection"></a> Bisection Method
 The basic formula for the bisection method is:
