@@ -1,3 +1,6 @@
+//(C) Copyright Tania Luo, 2019 with supervision from Daniel Hanson
+// Steffenson.h contains the functions needed to execute the Steffenson method of rootfinding in C++
+
 #ifndef STEFFENSON_H
 #define STEFFENSON_H
 
