@@ -11,6 +11,7 @@ C++ Rootfinding Project: A library of root-finding functions utilizing modern C+
     - [Conditions](#steffConditions)
   - [Bisection Method](#bisection)
     - [Parameters](#biParameters)
+    - [Conditions](#biConditions)
 * [References](#references)
 
 ## <a name = "introduction"></a> Introduction
@@ -57,15 +58,24 @@ The default values for `tol` and `guessZero` are the square root of machine epsi
 * for f(&alpha;) = 0, f'(&alpha;) &NotEqual; 0, f'(&alpha;) &isin; (-1,0) must be true.
 
 ### <a name = "bisection"></a> Bisection Method
-The basic algorithm for the bisection method is:
-
-c = 
+The basic algorithm for the bisection method is [2]:
+1. c := (a+b)/2
+2. If b-c &le; &epsilon; where &epsilon; is some small, positive number close to 0, then the root is c, and we break out of the algorithm.
+3. If f(b)f(c) &le; 0, then a := c. Else, b := c.
+4. We repeat the above steps until we are able to break out of the loop at step 2.
 
 #### <a name = "biParameters"></a> Parameters
 The function all for the bisection method is:
 ```cpp
  bisection(F f, Real a, Real b, Real tol, unsigned int maxIterations, Real guessZero)
 ```
+
+`f` is a templated parameter which can be taken in as either a lambda or a pre-defined function call to a mathematical expression created by the user. `a` and `b` are real values which represent an initial estimated range of where the root of the function might be. 
+
+#### <a name = "biConditions"></a> Conditions
+* The function f being evaluated must be continuous.
+* For any initial guesses *l*, *r*, the product of f(*l*) and f(*r*) must be negative (i.e., f(*l*)f(*r*) &lt; 0). 
+  
 
 ## <a name = "references"></a> References
 [1] R.L. Burden and J. D. Faires, *Numerical Analysis*, 5th Ed., PWS Publishing Company, Boston, MA, 1993
