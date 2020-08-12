@@ -1,3 +1,6 @@
+//(C) Copyright Tania Luo, 2019 with supervision from Daniel Hanson
+// Bisection.h contains the functions needed to execute the bisection method of rootfinding in C++
+
 #ifndef BISECTION_H
 #define BISECTION_H
 
