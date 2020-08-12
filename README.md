@@ -8,6 +8,7 @@ C++ Rootfinding Project: A library of root-finding functions utilizing modern C+
 * [Available Functions](#functions)
   - [Steffensen's Method](#steffensen)
     - [Parameters](#steffParameters)
+    - [Conditions](#steffConditions)
   - [Bisection Method](#bisection)
     - [Parameters](#biParameters)
 * [References](#references)
@@ -15,7 +16,7 @@ C++ Rootfinding Project: A library of root-finding functions utilizing modern C+
 ## <a name = "introduction"></a> Introduction
 With the implementation of lambdas in modern C++, it has become easier to perform operations on functions. With this library, we hope to create a library of .h header files to make rootfinding in C++ more simple and less time-consuming. The .h files included in this library do not have any other dependencies and work on any compilier.
 
-The functions in this library are not meant to be used to solve for roots haphazardly. The user should 
+The functions in this library are not meant to be used to solve for roots haphazardly. The user should have an estimate of where the roots are.
 
 ## <a name = "installation"></a> Installation
 There are no special actions needed for installation or compilation. Download the desired header file for your project and use 
@@ -51,6 +52,9 @@ steffensonMethod(F f, Real initialGuess, Real tol, unsigned int maxIterations, R
 `f` is a templated parameter which can be taken in as either a lambda or a pre-defined function call to a mathematical expression created by the user. `initialGuess` is a real value which represents an initial guess of what the root of the function might be. 
 
 The default values for `tol` and `guessZero` are the square root of machine epsilon. `tol` is used as the convergence tolerance while `guessZero` is used to determine if `initialGuess` yields a value which is close enough to 0. If `initalGuess` is close enough to zero, the function returns the value of `initialGuess` as the root.
+
+#### <a name = "steffConditions"></a> Conditions
+* for f(&alpha;) = 0, f'(&alpha;) &NotEqual; 0, f'(&alpha;) &isin; (-1,0) must be true.
 
 ### <a name = "bisection"></a> Bisection Method
 The basic algorithm for the bisection method is:
